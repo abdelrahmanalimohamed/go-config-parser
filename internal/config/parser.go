@@ -21,12 +21,10 @@ func LoadConfig(path string) (Config, error) {
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
 
-		// Skip empty lines or comments
 		if line == "" || strings.HasPrefix(line, ";") || strings.HasPrefix(line, "#") {
 			continue
 		}
 
-		// Check for section header
 		if strings.HasPrefix(line, "[") && strings.HasSuffix(line, "]") {
 			currentSection = strings.ToLower(strings.Trim(line, "[]"))
 			if _, exists := config[currentSection]; !exists {
