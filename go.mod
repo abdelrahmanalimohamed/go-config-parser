@@ -1,3 +1,3 @@
-module myproject
+module myapp
 
 go 1.24.1
